@@ -30,7 +30,7 @@ def callback():
 def handle_message(event):
         mtext = event.message.text
         if mtext == '圖鑑':
-            message = Confirm_Template()
+            message = Confirm_template()
             line_bot_api.reply_message(event.reply_token, message)
         elif mtext == '屬性相剋表':
             picurl = 'https://drive.google.com/uc?export=view&id=1S0jgdZ_mTaabMTxcXrOkj9kSqUEQ_rJD'
@@ -38,9 +38,12 @@ def handle_message(event):
                 original_content_url=picurl, preview_image_url=picurl))
 
         elif mtext == '各道館資訊':
-            message = Carousel_Template()
+            message = Carousel_template()
             line_bot_api.reply_message(event.reply_token, message)
 
+@handler.add(PostbackEvent)
+def handle_message(event):
+    print(event.postback.data)
 
 
 

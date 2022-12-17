@@ -20,7 +20,7 @@ def Carousel_template():
                             "type": "text",
                             "text": "草路鎮館主是 亞洛 !",
                             "weight": "bold",
-                            "size": "xxl"
+                            "size": "xl"
                         },
                         {
                             "type": "text",
@@ -36,9 +36,9 @@ def Carousel_template():
                         {
                             "type": "button",
                             "action": {
-                                "type": "postback",
+                                "type": "message",
                                 "label": "他有的寶可夢!",
-                                "data": "亞洛有的寶可夢!"
+                                "text": "亞洛有的寶可夢!"
                             }
                         }
                     ]
@@ -60,7 +60,7 @@ def Carousel_template():
                         {
                             "type": "text",
                             "text": "水舟鎮館主是 露璃娜 !",
-                            "size": "xxl",
+                            "size": "xl",
                             "weight": "bold"
                         },
                         {
@@ -77,9 +77,9 @@ def Carousel_template():
                         {
                             "type": "button",
                             "action": {
-                                "type": "postback",
+                                "type": "message",
                                 "label": "他有的寶可夢!",
-                                "data": "露璃娜有的寶可夢!"
+                                "text": "露璃娜有的寶可夢!"
                             }
                         }
                     ]
@@ -117,9 +117,9 @@ def Carousel_template():
                         {
                             "type": "button",
                             "action": {
-                                "type": "postback",
+                                "type": "message",
                                 "label": "他有的寶可夢!",
-                                "data": "卡蕪有的寶可夢!"
+                                "text": "卡蕪有的寶可夢!"
                             }
                         }
                     ]
@@ -157,9 +157,9 @@ def Carousel_template():
                         {
                             "type": "button",
                             "action": {
-                                "type": "postback",
+                                "type": "message",
                                 "label": "他有的寶可夢!",
-                                "data": "彩豆有的寶可夢!"
+                                "text": "彩豆有的寶可夢!"
                             }
                         }
                     ]
@@ -197,9 +197,9 @@ def Carousel_template():
                         {
                             "type": "button",
                             "action": {
-                                "type": "postback",
+                                "type": "message",
                                 "label": "他有的寶可夢!",
-                                "data": "歐尼奧有的寶可夢!"
+                                "text": "歐尼奧有的寶可夢!"
                             }
                         }
                     ]
@@ -237,9 +237,9 @@ def Carousel_template():
                         {
                             "type": "button",
                             "action": {
-                                "type": "postback",
+                                "type": "message",
                                 "label": "他有的寶可夢!",
-                                "data": "波普菈有的寶可夢!"
+                                "text": "波普菈有的寶可夢!"
                             }
                         }
                     ]
@@ -277,9 +277,9 @@ def Carousel_template():
                         {
                             "type": "button",
                             "action": {
-                                "type": "postback",
+                                "type": "message",
                                 "label": "他有的寶可夢!",
-                                "data": "瑪瓜有的寶可夢!"
+                                "text": "瑪瓜有的寶可夢!"
                             }
                         }
                     ]
@@ -317,9 +317,9 @@ def Carousel_template():
                         {
                             "type": "button",
                             "action": {
-                                "type": "postback",
+                                "type": "message",
                                 "label": "他有的寶可夢!",
-                                "data": "美蓉有的寶可夢!"
+                                "text": "美蓉有的寶可夢!"
                             }
                         }
                     ]
@@ -357,9 +357,9 @@ def Carousel_template():
                         {
                             "type": "button",
                             "action": {
-                                "type": "postback",
+                                "type": "message",
                                 "label": "他有的寶可夢!",
-                                "data": "聶梓有的寶可夢!"
+                                "text": "聶梓有的寶可夢!"
                             }
                         }
                     ]
@@ -397,9 +397,9 @@ def Carousel_template():
                         {
                             "type": "button",
                             "action": {
-                                "type": "postback",
+                                "type": "message",
                                 "label": "他有的寶可夢!",
-                                "data": "奇巴納有的寶可夢!"
+                                "text": "奇巴納有的寶可夢!"
                             }
                         }
                     ]

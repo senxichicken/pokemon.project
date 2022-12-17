@@ -4,7 +4,7 @@ from linebot.models import *
 from linebot.exceptions import InvalidSignatureError
 from Confirm_Template import *
 from Carousel_Template import *
-
+from illustrated import *
 app = Flask(__name__)
 
 
@@ -26,30 +26,43 @@ def callback():
         return 'OK'
 
 
+
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-        mtext = event.message.text
-        if mtext == '圖鑑':
-            message = Confirm_template()
-            line_bot_api.reply_message(event.reply_token, message)
-        elif mtext == '屬性相剋表':
-            picurl = 'https://drive.google.com/uc?export=view&id=1S0jgdZ_mTaabMTxcXrOkj9kSqUEQ_rJD'
-            line_bot_api.reply_message(event.reply_token, ImageSendMessage(
-                original_content_url=picurl, preview_image_url=picurl))
+    mtext = event.message.text
 
-        elif mtext == '各道館資訊':
-            message = Carousel_template()
-            line_bot_api.reply_message(event.reply_token, message)
+    if mtext == '圖鑑' :
+        message = Confirm_template()
+
+###查詢方法###
+    elif mtext == '文字或說話' :
+        line_bot_api.reply_message(
+            event.reply_token, TextMessage(text='請輸入或是說出您想查詢的寶可夢!'))
+        TVsearch(mtext)
+
+        
+    elif mtext == '上傳圖片' :
+        line_bot_api.reply_message(
+            event.reply_token, TextMessage(text='請上傳您要查詢的寶可夢圖片!'))
+###--------###
+
+#    elif mtext = '':
+
+###單純的屬性相剋表###
+    elif mtext == '屬性相剋表':
+        picurl = 'https://drive.google.com/uc?export=view&id=1S0jgdZ_mTaabMTxcXrOkj9kSqUEQ_rJD'
+        line_bot_api.reply_message(event.reply_token, ImageSendMessage(
+            original_content_url=picurl, preview_image_url=picurl))
+###-----------###
+
+    elif mtext == '各道館資訊':
+        message = Carousel_template()
+        line_bot_api.reply_message(event.reply_token, message)
+
 
 @handler.add(PostbackEvent)
 def handle_message(event):
     print(event.postback.data)
-
-
-
-
-
-
 
 
 if __name__ == '__main__':

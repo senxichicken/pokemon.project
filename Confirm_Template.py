@@ -1,21 +1,21 @@
 from linebot.models import *
+
+
 def Confirm_template():
     content = {
         "type": "bubble",
-        "hero": {
+        "body": {
             "type": "box",
             "layout": "vertical",
             "contents": [
                 {
                     "type": "text",
-                    "text": "要用什麼方式查詢呢?",
+                    "text": "要用什麼方式查詢呢!",
                     "size": "xl",
                     "weight": "bold",
-                    "align": "center",
-                    "margin": "xxl"
+                    "align": "center"
                 }
-            ],
-            "alignItems": "center"
+            ]
         },
         "footer": {
             "type": "box",
@@ -24,17 +24,17 @@ def Confirm_template():
                 {
                     "type": "button",
                     "action": {
-                        "type": "postback",
+                        "type": "message",
                         "label": "文字或說話",
-                        "data": "文字或說話"
+                        "text": "文字或說話"
                     }
                 },
                 {
                     "type": "button",
                     "action": {
-                        "type": "postback",
+                        "type": "message",
                         "label": "上傳圖片",
-                        "data": "上傳圖片"
+                        "text": "上傳圖片"
                     }
                 }
             ]

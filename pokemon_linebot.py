@@ -2,9 +2,11 @@ from flask import Flask, request, abort
 from linebot import LineBotApi, WebhookHandler
 from linebot.models import *
 from linebot.exceptions import InvalidSignatureError
-from Confirm_Template import *
-from Carousel_Template import *
-from illustrated import *
+import Confirm_Template
+import Carousel_Template
+import illustrated
+import BSPic
+import PokeTotal
 app = Flask(__name__)
 
 
@@ -21,7 +23,7 @@ def callback():
     body = request.get_data(as_text=True)
     try:
         handler.handle(body, signature)
-    except InvalidSignatureError:
+    except InvalidSignatureError: 
         abort(400)
         return 'OK'
 
@@ -30,15 +32,19 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     mtext = event.message.text
+    #print(type(mtext))
 
     if mtext == '圖鑑' :
-        message = Confirm_template()
+        message = Confirm_Template.Confirm_template()
+        line_bot_api.reply_message(event.reply_token, message)
 
 ###查詢方法###
     elif mtext == '文字或說話' :
         line_bot_api.reply_message(
             event.reply_token, TextMessage(text='請輸入或是說出您想查詢的寶可夢!'))
-        TVsearch(mtext)
+        '''while mtext == '文字或說話':
+            message = TVsearch(mtext)
+            line_bot_api.reply_message(event.reply_token,TextMessage(text = str(message[1])))'''
 
         
     elif mtext == '上傳圖片' :
@@ -56,13 +62,26 @@ def handle_message(event):
 ###-----------###
 
     elif mtext == '各道館資訊':
-        message = Carousel_template()
+        message = Carousel_Template.Carousel_template()
         line_bot_api.reply_message(event.reply_token, message)
+    else:
+        num,ch,jp,eng,AtrOr,AtrSec,Area = illustrated.TVsearch(mtext)
+        #print(num,ch,jp,eng,AtrOr,AtrSec,Area)
+        PokeUrl = BSPic.BSpic(num,eng)
+        AtrOriUrl, AtrSecUrl = PokeTotal.url(AtrOr,AtrSec)
+        result = PokeTotal.Poke_Total(PokeUrl,ch,jp,eng,AtrOr,AtrSec,Area,AtrOriUrl, AtrSecUrl)
+        #print(PokeUrl,ch,jp,eng,AtrOr,AtrSec,Area,AtrOriUrl, AtrSecUrl)
+        line_bot_api.reply_message(event.reply_token,result)
+        
+    
 
 
 @handler.add(PostbackEvent)
 def handle_message(event):
     print(event.postback.data)
+
+#定義屬性貼圖
+
 
 
 if __name__ == '__main__':

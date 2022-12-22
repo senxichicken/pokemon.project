@@ -383,7 +383,7 @@ def Carousel_template():
                             "action": {
                                 "type": "message",
                                 "label": "波克基斯",
-                                "text": "波克基斯"
+                                "text": "波克基斯*"
                             }
                         },
                         {

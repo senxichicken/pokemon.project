@@ -74,8 +74,12 @@ def handle_message(event):
         try:
             search(event,mtext)
         except:
-            line_bot_api.reply_message(
-            event.reply_token, TextMessage(text='很抱歉沒有找到您查詢的寶可夢!'))
+            try:
+                mtext = mtext+"*"
+                search(event,mtext)
+            except:
+                line_bot_api.reply_message(
+                event.reply_token, TextMessage(text='很抱歉沒有找到您查詢的寶可夢!'))
 
         
     #else:
@@ -85,11 +89,11 @@ def handle_message(event):
     
 def search(event,mtext):
     num,ch,jp,eng,AtrOr,AtrSec,Area = illustrated.TVsearch(mtext)
-        #print(num,ch,jp,eng,AtrOr,AtrSec,Area)
+    print(num,ch,jp,eng,AtrOr,AtrSec,Area)
     PokeUrl = BSPic.BSpic(num,eng)
     AtrOriUrl, AtrSecUrl = PokeTotal.url(AtrOr,AtrSec)
     result = PokeTotal.Poke_Total(PokeUrl,ch,jp,eng,AtrOr,AtrSec,Area,AtrOriUrl, AtrSecUrl)
-            #print(PokeUrl,ch,jp,eng,AtrOr,AtrSec,Area,AtrOriUrl, AtrSecUrl)
+    print(PokeUrl,ch,jp,eng,AtrOr,AtrSec,Area,AtrOriUrl, AtrSecUrl)
     line_bot_api.reply_message(event.reply_token,result)
     
 

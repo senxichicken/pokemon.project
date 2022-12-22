@@ -18,137 +18,48 @@ def TVsearch(mtext):
 
     df.columns = ["編號",  "中文", "日文", "英文", "本系", "副系"]
     # print(df.columns)
+    df['中文'] = df['中文'].replace('*','')
     pkn = PokeNum(mtext,df) 
     df1 = df[df['中文'] == mtext ]
     df1 = df1.values.tolist()
     df1 = df1[0]
-
-    if  pkn <= 151 and pkn > 0:
-    #print(type(mtext))
-    # print(df1['編號'])
-    # print(type.df1[0])確認值是否為str
-        num = df1[0]
-        ch = df1[1]
-        jp = df1[2]
-        eng = df1[3]
-        AtrOr = df1[4]
-        AtrSec = df1[5]
-        Area = "關都地區"
-        BSPic.BSpic(num,eng)
-        return num,ch,jp,eng,AtrOr,AtrSec,Area
-    elif pkn > 151 and pkn <= 251:
-        df1 = df[df['中文'] == mtext]
-        df1 = df1.values.tolist()
-        df1 = df1[0]
-    # print(type.df1[0])確認值是否為str
-        num = df1[0]
-        ch = df1[1]
-        jp = df1[2]
-        eng = df1[3]
-        AtrOr = df1[4]
-        AtrSec = df1[5]
-        Area = "城都地區"
-        BSPic.BSpic(num,eng)
-        return num,ch,jp,eng,AtrOr,AtrSec,Area
-    elif pkn > 251 and pkn <= 386: 
-        df1 = df[df['中文'] == mtext]
-        df1 = df1.values.tolist()
-        df1 = df1[0]
-    # print(type.df1[0])確認值是否為str
-        num = df1[0]
-        ch = df1[1]
-        jp = df1[2]
-        eng = df1[3]
-        AtrOr = df1[4]
-        AtrSec = df1[5]
-        Area = "豐緣地區"
-        BSPic.BSpic(num,eng)
-        return num,ch,jp,eng,AtrOr,AtrSec,Area
-    elif pkn > 386 and pkn <= 493:
-        df1 = df[df['中文'] == mtext]
-        df1 = df1.values.tolist()
-        df1 = df1[0]
-    # print(type.df1[0])確認值是否為str
-        num = df1[0]
-        ch = df1[1]
-        jp = df1[2]
-        eng = df1[3]
-        AtrOr = df1[4]
-        AtrSec = df1[5]
-        Area = "神奧地區"
-        BSPic.BSpic(num,eng)
-        return num,ch,jp,eng,AtrOr,AtrSec,Area
-    elif pkn > 493 and pkn <= 649:
-        df1 = df[df['中文'] == mtext]
-        df1 = df1.values.tolist()
-        df1 = df1[0]
-    # print(type.df1[0])確認值是否為str
-        num = df1[0]
-        ch = df1[1]
-        jp = df1[2]
-        eng = df1[3]
-        AtrOr = df1[4]
-        AtrSec = df1[5]
-        Area = "合眾地區"
-        BSPic.BSpic(num,eng)
-        return num,ch,jp,eng,AtrOr,AtrSec,Area
-    elif pkn > 649 and pkn <= 721:
-        df1 = df[df['中文'] == mtext]
-        df1 = df1.values.tolist()
-        df1 = df1[0]
-    # print(type.df1[0])確認值是否為str
-        num = df1[0]
-        ch = df1[1]
-        jp = df1[2]
-        eng = df1[3]
-        AtrOr = df1[4]
-        AtrSec = df1[5]
-        Area = "卡洛斯地區"
-        BSPic.BSpic(num,eng)
-        return num,ch,jp,eng,AtrOr,AtrSec,Area
-    elif pkn > 721 and pkn <= 809:
-        df1 = df[df['中文'] == mtext]
-        df1 = df1.values.tolist()
-        df1 = df1[0]
-    # print(type.df1[0])確認值是否為str
-        num = df1[0]
-        ch = df1[1]
-        jp = df1[2]
-        eng = df1[3]
-        AtrOr = df1[4]
-        AtrSec = df1[5]
-        Area = "阿羅拉地區"
-        BSPic.BSpic(num,eng)
-        return num,ch,jp,eng,AtrOr,AtrSec,Area
-    elif pkn > 809 and pkn <= 905:
-        df1 = df[df['中文'] == mtext]
-        df1 = df1.values.tolist()
-        df1 = df1[0]
-    # print(type.df1[0])確認值是否為str
-        num = df1[0]
-        ch = df1[1]
-        jp = df1[2]
-        eng = df1[3]
-        AtrOr = df1[4]
-        AtrSec = df1[5]
-        Area = "伽勒爾地區"
-        BSPic.BSpic(num,eng)
-        return num,ch,jp,eng,AtrOr,AtrSec,Area
-    else:
-        pkn > 905 and pkn <= 1008
-        df1 = df[df['中文'] == mtext]
-        df1 = df1.values.tolist()
-        df1 = df1[0]
-    # print(type.df1[0])確認值是否為str
-        num = df1[0]
-        ch = df1[1]
-        jp = df1[2]
-        eng = df1[3]
-        AtrOr = df1[4]
-        AtrSec = df1[5]
-        Area = "帕底亞地區"
-        BSPic.BSpic(num,eng)
-        return num,ch,jp,eng,AtrOr,AtrSec,Area
+    #print(df)
+    num = df1[0]
+    ch = df1[1]
+    jp = df1[2]
+    eng = df1[3]
+    AtrOr = df1[4]
+    AtrSec = df1[5]
+    Area = ''
+    num2Area = [[151,"關都"], [251,"城都"], [386,"豐緣"], [493,"神奧"],[649,"合眾"],[721,"卡洛斯"],[809,"阿羅拉"],[905,"伽勒爾"],[1500,"帕底亞地區"]]#更簡潔的寫法
+    print(type(num))
+    for numm ,text in num2Area: #沒注意前面已經宣告num 差點被搞死
+        if pkn <= numm:
+            Area = text
+    #print(num,ch,jp,eng,AtrOr,AtrSec,Area)
+            return num,ch,jp,eng,AtrOr,AtrSec,Area
+    
+    '''for i in range (pkn): 
+        
+        if  pkn <= 151 :
+            Area = "關都地區"        
+        elif pkn <= 251:
+            Area = "城都地區"        
+        elif pkn <= 386: 
+            Area = "豐緣地區"        
+        elif pkn <= 493:
+            Area = "神奧地區"        
+        elif pkn <= 649:
+            Area = "合眾地區"        
+        elif pkn <= 721:
+            Area = "卡洛斯地區"
+        elif pkn <= 809:
+            Area = "阿羅拉地區"
+        elif pkn <= 905:
+            Area = "伽勒爾地區"
+        else:
+            Area = "帕底亞地區
+        return num,ch,jp,eng,AtrOr,AtrSec,Area'''
         
         
     

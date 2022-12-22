@@ -30,7 +30,7 @@ def url(AtrOr, AtrSec):
               ghost, fire, ground, normal, ice, poison, steel, psychic, water, rock]
     ChEng = ["蟲", "惡", "龍", "電", "妖精", "格鬥", "飛行", "草", "幽靈",
              "火", "地面", "一般", "冰", "毒", "鋼", "超能力", "水", "岩石"]
-    print(AtrOr, AtrSec)
+    #print(AtrOr, AtrSec)
     for i in range(0, 18):
         if AtrOr == ChEng[i]:
             AtrOriUrl = EngUrl[i]
@@ -39,7 +39,7 @@ def url(AtrOr, AtrSec):
             AtrSecUrl = EngUrl[i]
         # print("che=="ChEng[i])
         #print("Ori="+AtrOriUrl, "Sec="+AtrSecUrl)
-    print(AtrOr, AtrSec, AtrOriUrl, AtrSecUrl)
+    #print(AtrOr, AtrSec, AtrOriUrl, AtrSecUrl)
     return AtrOriUrl, AtrSecUrl
 
 
@@ -47,7 +47,6 @@ def Poke_Total(PokeUrl, Ch, Jp, Eng, AtrOr, AtrSec, Area,  AtrOriUrl, AtrSecUrl)
 
     PokeUrl = re.sub("\'", "", PokeUrl)
     PokeUrl = PokeUrl[18:]
-    print()
 
     PokeUrl = 'https://s1.52poke.wiki'+PokeUrl
     # print(PokeUrl)
@@ -94,7 +93,7 @@ def Poke_Total(PokeUrl, Ch, Jp, Eng, AtrOr, AtrSec, Area,  AtrOriUrl, AtrSecUrl)
                 },
                 {
                     "type": "text",
-                    "text": "本系:"+AtrOr+"    副系:"+AtrSec
+                    "text": "屬性一:"+AtrOr+"    屬性二:"+AtrSec
                 },
                 {
                     "type": "text",

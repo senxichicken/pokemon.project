@@ -1,4 +1,7 @@
 from linebot.models import *
+import illustrated
+
+
 def Carousel_template():
     content = {
         "type": "carousel",
@@ -27,20 +30,35 @@ def Carousel_template():
                             "text": "是草系寶可夢訓練家!",
                             "style": "italic"
                         }
-                    ]
+                    ],
+                    "maxHeight": "80px"
                 },
                 "footer": {
                     "type": "box",
                     "layout": "vertical",
                     "contents": [
                         {
+                            "type": "text",
+                            "text": "他有的寶可夢!",
+                            "align": "center",
+                            "size": "xl"
+                        },
+                        {
                             "type": "button",
                             "action": {
                                 "type": "message",
-                                "label": "他有的寶可夢!",
-                                "text": "亞洛有的寶可夢!"
+                                "label": "幼棉棉",
+                                "text": "幼棉棉"
                             }
-                        }
+                        },
+                        {
+                            "type": "button",
+                            "action": {
+                                "type": "message",
+                                "label": "白蓬蓬",
+                                "text": "白蓬蓬"
+                            }
+                        },
                     ]
                 }
             },
@@ -75,13 +93,35 @@ def Carousel_template():
                     "layout": "vertical",
                     "contents": [
                         {
+                            "type": "text",
+                            "text": "他有的寶可夢!",
+                            "align": "center",
+                            "size": "xl"
+                        },
+                        {
                             "type": "button",
                             "action": {
                                 "type": "message",
-                                "label": "他有的寶可夢!",
-                                "text": "露璃娜有的寶可夢!"
+                                "label": "角金魚",
+                                "text": "角金魚"
                             }
-                        }
+                        },
+                        {
+                            "type": "button",
+                            "action": {
+                                "type": "message",
+                                "label": "刺梭魚",
+                                "text": "刺梭魚"
+                            }
+                        },
+                        {
+                            "type": "button",
+                            "action": {
+                                "type": "message",
+                                "label": "暴噬龜",
+                                "text": "暴噬龜"
+                            }
+                        },
                     ]
                 }
             },
@@ -115,13 +155,35 @@ def Carousel_template():
                     "layout": "vertical",
                     "contents": [
                         {
+                            "type": "text",
+                            "text": "他有的寶可夢!",
+                            "align": "center",
+                            "size": "xl"
+                        },
+                        {
                             "type": "button",
                             "action": {
                                 "type": "message",
-                                "label": "他有的寶可夢!",
-                                "text": "卡蕪有的寶可夢!"
+                                "label": "九尾",
+                                "text": "九尾"
                             }
-                        }
+                        },
+                        {
+                            "type": "button",
+                            "action": {
+                                "type": "message",
+                                "label": "風速狗",
+                                "text": "風速狗"
+                            }
+                        },
+                        {
+                            "type": "button",
+                            "action": {
+                                "type": "message",
+                                "label": "焚焰蚣",
+                                "text": "焚焰蚣"
+                            }
+                        },
                     ]
                 }
             },
@@ -155,13 +217,43 @@ def Carousel_template():
                     "layout": "vertical",
                     "contents": [
                         {
+                            "type": "text",
+                            "text": "他有的寶可夢!",
+                            "align": "center",
+                            "size": "xl"
+                        },
+                        {
                             "type": "button",
                             "action": {
                                 "type": "message",
-                                "label": "他有的寶可夢!",
-                                "text": "彩豆有的寶可夢!"
+                                "label": "戰舞郎",
+                                "text": "戰舞郎"
                             }
-                        }
+                        },
+                        {
+                            "type": "button",
+                            "action": {
+                                "type": "message",
+                                "label": "流氓熊貓",
+                                "text": "流氓熊貓"
+                            }
+                        },
+                        {
+                            "type": "button",
+                            "action": {
+                                "type": "message",
+                                "label": "蔥遊兵",
+                                "text": "蔥遊兵"
+                            }
+                        },
+                        {
+                            "type": "button",
+                            "action": {
+                                "type": "message",
+                                "label": "怪力",
+                                "text": "怪力"
+                            }
+                        },
                     ]
                 }
             },
@@ -195,13 +287,43 @@ def Carousel_template():
                     "layout": "vertical",
                     "contents": [
                         {
+                            "type": "text",
+                            "text": "他有的寶可夢!",
+                            "align": "center",
+                            "size": "xl"
+                        },
+                        {
                             "type": "button",
                             "action": {
                                 "type": "message",
-                                "label": "他有的寶可夢!",
-                                "text": "歐尼奧有的寶可夢!"
+                                "label": "哭哭面具",
+                                "text": "哭哭面具"
                             }
-                        }
+                        },
+                        {
+                            "type": "button",
+                            "action": {
+                                "type": "message",
+                                "label": "謎擬Q",
+                                "text": "謎擬Q"
+                            }
+                        },
+                        {
+                            "type": "button",
+                            "action": {
+                                "type": "message",
+                                "label": "魔靈珊瑚",
+                                "text": "魔靈珊瑚"
+                            }
+                        },
+                        {
+                            "type": "button",
+                            "action": {
+                                "type": "message",
+                                "label": "耿鬼",
+                                "text": "耿鬼"
+                            }
+                        },
                     ]
                 }
             },
@@ -235,13 +357,43 @@ def Carousel_template():
                     "layout": "vertical",
                     "contents": [
                         {
+                            "type": "text",
+                            "text": "他有的寶可夢!",
+                            "align": "center",
+                            "size": "xl"
+                        },
+                        {
                             "type": "button",
                             "action": {
                                 "type": "message",
-                                "label": "他有的寶可夢!",
-                                "text": "波普菈有的寶可夢!"
+                                "label": "雙彈瓦斯",
+                                "text": " 雙彈瓦斯"
                             }
-                        }
+                        },
+                        {
+                            "type": "button",
+                            "action": {
+                                "type": "message",
+                                "label": "大嘴娃",
+                                "text": "大嘴娃"
+                            }
+                        },
+                        {
+                            "type": "button",
+                            "action": {
+                                "type": "message",
+                                "label": "波克基斯",
+                                "text": "波克基斯"
+                            }
+                        },
+                        {
+                            "type": "button",
+                            "action": {
+                                "type": "message",
+                                "label": "霜奶仙",
+                                "text": "霜奶仙"
+                            }
+                        },
                     ]
                 }
             },
@@ -275,13 +427,43 @@ def Carousel_template():
                     "layout": "vertical",
                     "contents": [
                         {
+                            "type": "text",
+                            "text": "他有的寶可夢!",
+                            "align": "center",
+                            "size": "xl"
+                        },
+                        {
                             "type": "button",
                             "action": {
                                 "type": "message",
-                                "label": "他有的寶可夢!",
-                                "text": "瑪瓜有的寶可夢!"
+                                "label": "龜足巨鎧",
+                                "text": " 龜足巨鎧"
                             }
-                        }
+                        },
+                        {
+                            "type": "button",
+                            "action": {
+                                "type": "message",
+                                "label": "壺壺",
+                                "text": "壺壺"
+                            }
+                        },
+                        {
+                            "type": "button",
+                            "action": {
+                                "type": "message",
+                                "label": "巨石丁",
+                                "text": "巨石丁"
+                            }
+                        },
+                        {
+                            "type": "button",
+                            "action": {
+                                "type": "message",
+                                "label": "巨炭山",
+                                "text": "巨炭山"
+                            }
+                        },
                     ]
                 }
             },
@@ -315,13 +497,43 @@ def Carousel_template():
                     "layout": "vertical",
                     "contents": [
                         {
+                            "type": "text",
+                            "text": "他有的寶可夢!",
+                            "align": "center",
+                            "size": "xl"
+                        },
+                        {
                             "type": "button",
                             "action": {
                                 "type": "message",
-                                "label": "他有的寶可夢!",
-                                "text": "美蓉有的寶可夢!"
+                                "label": "雪絨蛾",
+                                "text": " 雪絨蛾"
                             }
-                        }
+                        },
+                        {
+                            "type": "button",
+                            "action": {
+                                "type": "message",
+                                "label": "達摩狒狒",
+                                "text": "達摩狒狒"
+                            }
+                        },
+                        {
+                            "type": "button",
+                            "action": {
+                                "type": "message",
+                                "label": "冰砌鵝",
+                                "text": "冰砌鵝"
+                            }
+                        },
+                        {
+                            "type": "button",
+                            "action": {
+                                "type": "message",
+                                "label": "拉普拉斯",
+                                "text": "拉普拉斯"
+                            }
+                        },
                     ]
                 }
             },
@@ -355,13 +567,43 @@ def Carousel_template():
                     "layout": "vertical",
                     "contents": [
                         {
+                            "type": "text",
+                            "text": "他有的寶可夢!",
+                            "align": "center",
+                            "size": "xl"
+                        },
+                        {
                             "type": "button",
                             "action": {
                                 "type": "message",
-                                "label": "他有的寶可夢!",
-                                "text": "聶梓有的寶可夢!"
+                                "label": "頭巾混混",
+                                "text": " 頭巾混混"
                             }
-                        }
+                        },
+                        {
+                            "type": "button",
+                            "action": {
+                                "type": "message",
+                                "label": "烏賊王",
+                                "text": "烏賊王"
+                            }
+                        },
+                        {
+                            "type": "button",
+                            "action": {
+                                "type": "message",
+                                "label": "堵攔熊",
+                                "text": "堵攔熊"
+                            }
+                        },
+                        {
+                            "type": "button",
+                            "action": {
+                                "type": "message",
+                                "label": "坦克臭鼬",
+                                "text": "坦克臭鼬"
+                            }
+                        },
                     ]
                 }
             },
@@ -395,17 +637,47 @@ def Carousel_template():
                     "layout": "vertical",
                     "contents": [
                         {
+                            "type": "text",
+                            "text": "他有的寶可夢!",
+                            "align": "center",
+                            "size": "xl"
+                        },
+                        {
                             "type": "button",
                             "action": {
                                 "type": "message",
-                                "label": "他有的寶可夢!",
-                                "text": "奇巴納有的寶可夢!"
+                                "label": "龐岩怪",
+                                "text": " 龐岩怪"
                             }
-                        }
+                        },
+                        {
+                            "type": "button",
+                            "action": {
+                                "type": "message",
+                                "label": "沙漠蜻蜓",
+                                "text": "沙漠蜻蜓"
+                            }
+                        },
+                        {
+                            "type": "button",
+                            "action": {
+                                "type": "message",
+                                "label": "沙螺蟒",
+                                "text": "沙螺蟒"
+                            }
+                        },
+                        {
+                            "type": "button",
+                            "action": {
+                                "type": "message",
+                                "label": "鋁鋼龍",
+                                "text": "鋁鋼龍"
+                            }
+                        },
                     ]
                 }
             }
         ]
     }
-    message = FlexSendMessage(alt_text = '道館館主',contents = content)
+    message = FlexSendMessage(alt_text='道館館主', contents=content)
     return message

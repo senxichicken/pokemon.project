@@ -30,26 +30,27 @@ def url(AtrOr, AtrSec):
               ghost, fire, ground, normal, ice, poison, steel, psychic, water, rock]
     ChEng = ["蟲", "惡", "龍", "電", "妖精", "格鬥", "飛行", "草", "幽靈",
              "火", "地面", "一般", "冰", "毒", "鋼", "超能力", "水", "岩石"]
-    #print(AtrOr,AtrSec)
-    for i in range(0,17):
+    print(AtrOr, AtrSec)
+    for i in range(0, 18):
         if AtrOr == ChEng[i]:
             AtrOriUrl = EngUrl[i]
-        #print("che=="ChEng[i])   
+        # print("che=="ChEng[i])
         if AtrSec == ChEng[i]:
             AtrSecUrl = EngUrl[i]
-        #print("che=="ChEng[i])
+        # print("che=="ChEng[i])
         #print("Ori="+AtrOriUrl, "Sec="+AtrSecUrl)
+    print(AtrOr, AtrSec, AtrOriUrl, AtrSecUrl)
     return AtrOriUrl, AtrSecUrl
 
-def Poke_Total(PokeUrl, Ch, Jp, Eng, Area, AtrOr, AtrSec, AtrOriUrl, AtrSecUrl):
-    PokeUrl = re.sub("\'","",PokeUrl)
+
+def Poke_Total(PokeUrl, Ch, Jp, Eng, AtrOr, AtrSec, Area,  AtrOriUrl, AtrSecUrl):
+
+    PokeUrl = re.sub("\'", "", PokeUrl)
     PokeUrl = PokeUrl[18:]
-    
+    print()
+
     PokeUrl = 'https://s1.52poke.wiki'+PokeUrl
-    a = Area
-    Area = AtrSec
-    AtrSec = a
-    #print(PokeUrl)
+    # print(PokeUrl)
     content = {
         "type": "bubble",
         "hero": {
@@ -63,12 +64,18 @@ def Poke_Total(PokeUrl, Ch, Jp, Eng, Area, AtrOr, AtrSec, AtrOriUrl, AtrSecUrl):
             "layout": "vertical",
             "contents": [
                 {
-                    "type": "image",
-                    "url": AtrOriUrl
-                },
-                {
-                    "type": "image",
-                    "url": AtrSecUrl
+                    "type": "box",
+                    "layout": "horizontal",
+                    "contents": [
+                        {
+                            "type": "image",
+                            "url": AtrOriUrl
+                        },
+                        {
+                            "type": "image",
+                            "url": AtrSecUrl
+                        }
+                    ]
                 },
                 {
                     "type": "box",
@@ -106,7 +113,7 @@ def Poke_Total(PokeUrl, Ch, Jp, Eng, Area, AtrOr, AtrSec, AtrOriUrl, AtrSecUrl):
                         "type": "uri",
                         "label": "點我查看更多!",
                         "uri": "https://wiki.52poke.com/wiki/"+Eng
-                }
+                    }
                 }
             ]
         }

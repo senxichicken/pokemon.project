@@ -7,6 +7,7 @@ import Carousel_Template
 import illustrated
 import BSPic
 import PokeTotal
+import time
 app = Flask(__name__)
 
 
@@ -27,7 +28,7 @@ def callback():
         abort(400)
         return 'OK'
 
-
+boss = ["亞洛","露璃娜","卡蕪","彩豆","歐尼奧","波普菈","瑪瓜","美蓉","聶梓","奇巴納"] 
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
@@ -64,17 +65,33 @@ def handle_message(event):
     elif mtext == '各道館資訊':
         message = Carousel_Template.Carousel_template()
         line_bot_api.reply_message(event.reply_token, message)
+   
+    #elif illustrated.TVsearch(mtext) == True:
+    elif mtext =='寶可夢': 
+        line_bot_api.reply_message(
+            event.reply_token, TextMessage(text='請輸入您要查詢的寶可夢!'))
     else:
-        num,ch,jp,eng,AtrOr,AtrSec,Area = illustrated.TVsearch(mtext)
-        #print(num,ch,jp,eng,AtrOr,AtrSec,Area)
-        PokeUrl = BSPic.BSpic(num,eng)
-        AtrOriUrl, AtrSecUrl = PokeTotal.url(AtrOr,AtrSec)
-        result = PokeTotal.Poke_Total(PokeUrl,ch,jp,eng,AtrOr,AtrSec,Area,AtrOriUrl, AtrSecUrl)
-        #print(PokeUrl,ch,jp,eng,AtrOr,AtrSec,Area,AtrOriUrl, AtrSecUrl)
-        line_bot_api.reply_message(event.reply_token,result)
+        try:
+            search(event,mtext)
+        except:
+            line_bot_api.reply_message(
+            event.reply_token, TextMessage(text='很抱歉沒有找到您查詢的寶可夢!'))
+
+        
+    #else:
+        #line_bot_api.reply_message(
+        #event.reply_token, TextMessage(text='抱歉!找不到您要查詢的寶可夢!'))
         
     
-
+def search(event,mtext):
+    num,ch,jp,eng,AtrOr,AtrSec,Area = illustrated.TVsearch(mtext)
+        #print(num,ch,jp,eng,AtrOr,AtrSec,Area)
+    PokeUrl = BSPic.BSpic(num,eng)
+    AtrOriUrl, AtrSecUrl = PokeTotal.url(AtrOr,AtrSec)
+    result = PokeTotal.Poke_Total(PokeUrl,ch,jp,eng,AtrOr,AtrSec,Area,AtrOriUrl, AtrSecUrl)
+            #print(PokeUrl,ch,jp,eng,AtrOr,AtrSec,Area,AtrOriUrl, AtrSecUrl)
+    line_bot_api.reply_message(event.reply_token,result)
+    
 
 @handler.add(PostbackEvent)
 def handle_message(event):

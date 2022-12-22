@@ -19,12 +19,13 @@ def TVsearch(mtext):
     df.columns = ["編號",  "中文", "日文", "英文", "本系", "副系"]
     # print(df.columns)
     pkn = PokeNum(mtext,df) 
+    df1 = df[df['中文'] == mtext ]
+    df1 = df1.values.tolist()
+    df1 = df1[0]
+
     if  pkn <= 151 and pkn > 0:
     #print(type(mtext))
     # print(df1['編號'])
-        df1 = df[df['中文'] == mtext]
-        df1 = df1.values.tolist()
-        df1 = df1[0]
     # print(type.df1[0])確認值是否為str
         num = df1[0]
         ch = df1[1]

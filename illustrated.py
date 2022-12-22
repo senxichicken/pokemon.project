@@ -17,7 +17,7 @@ def TVsearch(mtext):
 
     df.columns = ["編號",  "中文", "日文", "英文", "本系", "副系"]
     # print(df.columns)
-    #print(df)
+    print(df)
     if df[df['英文'] == mtext ].empty == False:
         df1 = df[df['英文'] == mtext ]
     elif df[df['日文'] == mtext ].empty == False:

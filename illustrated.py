@@ -2,7 +2,6 @@ import pandas as pd
 from linebot import LineBotApi, WebhookHandler
 from linebot.models import *
 from linebot.exceptions import InvalidSignatureError
-from pokemonnum import * 
 import BSPic
 
 pd.set_option("display.max_column", None)
@@ -18,21 +17,28 @@ def TVsearch(mtext):
 
     df.columns = ["編號",  "中文", "日文", "英文", "本系", "副系"]
     # print(df.columns)
-    df['中文'] = df['中文'].replace('*','')
-    pkn = PokeNum(mtext,df) 
-    df1 = df[df['中文'] == mtext ]
+    #print(df)
+    if df[df['英文'] == mtext ].empty == False:
+        df1 = df[df['英文'] == mtext ]
+    elif df[df['日文'] == mtext ].empty == False:
+        df1 = df[df['日文'] == mtext ]
+    elif df[df['中文'] == mtext ].empty == False:
+        df1 = df[df['中文'] == mtext ]
+    ##判斷若找到的dataframe不是空值，則設定該列為要抓取的資料
+        
     df1 = df1.values.tolist()
     df1 = df1[0]
     #print(df)
-    num = df1[0]
+    num = df1[0][1:]
     ch = df1[1]
     jp = df1[2]
     eng = df1[3]
     AtrOr = df1[4]
     AtrSec = df1[5]
     Area = ''
+    pkn =int(num)
     num2Area = [[151,"關都"], [251,"城都"], [386,"豐緣"], [493,"神奧"],[649,"合眾"],[721,"卡洛斯"],[809,"阿羅拉"],[905,"伽勒爾"],[1500,"帕底亞地區"]]#更簡潔的寫法
-    print(type(num))
+    #print(type(num))
     for numm ,text in num2Area: #沒注意前面已經宣告num 差點被搞死
         if pkn <= numm:
             Area = text

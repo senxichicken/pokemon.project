@@ -4,7 +4,6 @@ import re
 
 
 def BSpic(num,eng):
-    num = num[1:]
     #print(num)
     url = "https://wiki.52poke.com/wiki/File:"+num+eng+".png"
     #print(url)

@@ -647,7 +647,7 @@ def Carousel_template():
                             "action": {
                                 "type": "message",
                                 "label": "龐岩怪",
-                                "text": " 龐岩怪"
+                                "text": "龐岩怪"
                             }
                         },
                         {
